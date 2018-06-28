@@ -6,6 +6,7 @@
 # User-specific stuff
 
 .idea/
+res/
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
