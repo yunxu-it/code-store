@@ -5,7 +5,7 @@ Java-Code-Store
 
 ### Generator
 
-- [Android Dimens sw generator](./tree/dimens-sw-generator)
+- [Android Dimens sw generator](https://github.com/yunxu-it/java-code-store/tree/dimens-sw-generator)
 
 
 ### License
