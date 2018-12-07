@@ -10,7 +10,7 @@ public class DimenGenerator {
    * 适配Android 3.2以上   大部分手机的sw值集中在  300-460之间
    */
   private static final int MIN_WIDTH_DP = 320;
-  private static final int MAX_WIDTH_DP = 400;
+  private static final int MAX_WIDTH_DP = 430;
   private static final int STEP = 10;
   private static final String buildDir = "./out/res/";
 
