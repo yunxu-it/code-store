@@ -1,26 +1,52 @@
-import java.util.Scanner;
+import java.util.Scanner
+import kotlin.math.pow
+import kotlin.math.sqrt
+import java.math.BigDecimal
+import java.math.RoundingMode
 
-public class Calculator {
 
-  public static void main(String[] args) {
-    caluSw();
-  }
+object Calculator {
 
-  /**
-   * 根据分辨率和设备尺寸计算sw值
-   */
-  private static void caluSw() {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("enter width, height and screen size: (eg. 1080 1920 5)");
-    String next = sc.nextLine();
-    String[] split = next.split(" ");
-    if (split.length == 3) {
-      System.out.println(Math.sqrt(Math.pow(Double.parseDouble(split[0]), 2) + Math.pow(
-          Double.parseDouble(split[1]), 2)) / Double.parseDouble(split[2]));
-    } else {
-      System.out.println("格式错误");
+    @JvmStatic
+    fun main(args: Array<String>) {
+        calcDpi()
     }
-  }
+
+    /**
+     * 根据分辨率和设备尺寸计算sw值
+     */
+    private fun calcDpi() {
+        val sc = Scanner(System.`in`)
+        println("enter width: ")
+        val width = sc.nextInt()
+        println("enter height: ")
+        val height = sc.nextInt()
+        println("enter screen size: ")
+        val screenSize = sc.nextInt()
+
+        val dpi = getDpi(width, height, screenSize).omit()
+        println("dpi: $dpi")
+        println("small width: " + getSmallWidthDp(width, dpi).omit())
+    }
+
+    /**
+     * 根据设备宽度与dpi计算宽度dp值
+     */
+    private fun getSmallWidthDp(width: Int, dpi: Double) = width / (dpi / 160)
+
+    /**
+     * 根据设备的长宽高计算dpi
+     */
+    private fun getDpi(width: Int, height: Int, inch: Int): Double {
+        return sqrt(width.toDouble().pow(2.0) + height.toDouble().pow(2.0)) / inch
+    }
+
+    /**
+     * 省略两位小数
+     */
+    private fun Double.omit(): Double {
+        return BigDecimal(this).setScale(2, RoundingMode.HALF_UP).toDouble()
+    }
 
 
 }
