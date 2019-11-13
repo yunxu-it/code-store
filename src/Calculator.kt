@@ -22,7 +22,7 @@ object Calculator {
         println("enter height: ")
         val height = sc.nextInt()
         println("enter screen size: ")
-        val screenSize = sc.nextInt()
+        val screenSize = sc.nextDouble()
 
         val dpi = getDpi(width, height, screenSize).omit()
         println("dpi: $dpi")
@@ -37,7 +37,7 @@ object Calculator {
     /**
      * 根据设备的长宽高计算dpi
      */
-    private fun getDpi(width: Int, height: Int, inch: Int): Double {
+    private fun getDpi(width: Int, height: Int, inch: Double): Double {
         return sqrt(width.toDouble().pow(2.0) + height.toDouble().pow(2.0)) / inch
     }
 
