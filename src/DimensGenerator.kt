@@ -20,10 +20,15 @@ object DimensGenerator {
      * sw = height / (dpi /160 )
      * @see Calculator
      */
-    private const val MIN_WIDTH_DP = 650
-    private const val MAX_WIDTH_DP = 950
+    private const val MIN_WIDTH_DP = 660
+    private const val MAX_WIDTH_DP = 960
     private const val STEP = 20
     private const val buildDir = "./out/res/"
+
+    /**
+     * 横屏取长度，竖屏取宽度
+     */
+    private const val isHorizontal = false
 
     @JvmStatic
     fun main(args: Array<String>) {
@@ -32,7 +37,7 @@ object DimensGenerator {
 
         var i = MIN_WIDTH_DP
         while (i <= MAX_WIDTH_DP) {
-            MakeUtils.makeAll(DESIGN_WIDTH, DESIGN_HEIGHT, i, buildDir)
+            MakeUtils.makeAll(DESIGN_WIDTH, if (isHorizontal) DESIGN_HEIGHT else DESIGN_WIDTH, i, buildDir)
             i += STEP
         }
     }

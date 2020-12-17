@@ -28,7 +28,7 @@ public class MakeUtils {
   /**
    * 生成所有的尺寸数据
    */
-  private static String makeAllDimens(int widthDp, int designWidth, int designHeight) {
+  private static String makeAllDimens(int widthDp, int designWidth, int maxDpValue) {
     float dpValue;
     String temp;
     StringBuilder sb = new StringBuilder();
@@ -38,7 +38,7 @@ public class MakeUtils {
       //备份生成的相关信息
       temp = String.format(XML_BASE_DPI, widthDp);
       sb.append(temp);
-      for (int i = 0; i <= designHeight; i++) {
+      for (int i = 0; i <= maxDpValue; i++) {
         dpValue = px2dip((float) i, widthDp, designWidth);
         temp = String.format(XML_DIMEN_TEMPLATE, "", i, dpValue);
         sb.append(temp);
@@ -55,9 +55,10 @@ public class MakeUtils {
    * 生成的目标文件夹 只需传宽进来就行
    *
    * @param widthDp dp宽度
+   * @param maxDpValue xml 文件中最大值
    * @param buildDir 生成的目标文件夹
    */
-  public static void makeAll(int designWidth, int designHeight, int widthDp, String buildDir) {
+  public static void makeAll(int designWidth, int maxDpValue, int widthDp, String buildDir) {
     try {
       //生成规则
       final String folderName;
@@ -77,7 +78,7 @@ public class MakeUtils {
       //生成values文件
       FileOutputStream fos = new FileOutputStream(
           file.getAbsolutePath() + File.separator + XML_NAME);
-      fos.write(makeAllDimens(widthDp, designWidth, designHeight).getBytes());
+      fos.write(makeAllDimens(widthDp, designWidth, maxDpValue).getBytes());
       fos.flush();
       fos.close();
       System.out.println("生成 " + file.getName() + " 成功");
