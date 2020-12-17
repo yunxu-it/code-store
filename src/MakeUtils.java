@@ -18,7 +18,7 @@ public class MakeUtils {
   private static final String XML_BASE_DPI = "<dimen name=\"base_dpi\">%ddp</dimen>\r\n";
 
 
-  private static float px2dip(float pxValue, int sw, int designWidth) {
+  public static float px2dip(float pxValue, int sw, int designWidth) {
     float dpValue = (pxValue / (float) designWidth) * sw;
     BigDecimal bigDecimal = new BigDecimal(dpValue);
     return bigDecimal.setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();

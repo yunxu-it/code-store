@@ -17,6 +17,8 @@ res/
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
+*/build
+
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries

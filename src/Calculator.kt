@@ -1,8 +1,8 @@
-import java.util.Scanner
-import kotlin.math.pow
-import kotlin.math.sqrt
 import java.math.BigDecimal
 import java.math.RoundingMode
+import java.util.*
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 
 object Calculator {
@@ -26,7 +26,8 @@ object Calculator {
 
         val dpi = getDpi(width, height, screenSize).omit()
         println("dpi: $dpi")
-        println("small width: " + getSmallWidthDp(width, dpi).omit())
+        println("dp for width: " + getSmallWidthDp(width, dpi).omit())
+        println("dp for height: " + getSmallWidthDp(height, dpi).omit())
     }
 
     /**
