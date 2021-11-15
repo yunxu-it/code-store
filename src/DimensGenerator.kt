@@ -5,23 +5,19 @@ object DimensGenerator {
     /**
      * 设计稿尺寸(根据自己设计师的设计稿的宽度填入)
      */
-    private const val DESIGN_WIDTH = 768
-    private const val DESIGN_HEIGHT = 1366
+    private const val DESIGN_WIDTH = 780
+    private const val DESIGN_HEIGHT = 1688
 
     /**
      * 适配Android 3.2以上   大部分手机的sw值集中在  300-460之间
      * 适配Android 3.2以上   大部分平板的sw值集中在  700-900之间
-     * 小米4 1200x1920x8 sw=678.4 dpi=283.02
-     * 小米平板 1536x2048x7.9 sw=758 dpi=324.05
-     * 华为平板 T1-A21W 800x1280x9.6 sw=814 dpi=157.23
-     * 华为X6 800x1280 9.7 sw=600
      *
      * dpi = √(width^2 + height^2) / inch
      * sw = height / (dpi /160 )
      * @see Calculator
      */
-    private const val MIN_WIDTH_DP = 560
-    private const val MAX_WIDTH_DP = 800
+    private const val MIN_WIDTH_DP = 300
+    private const val MAX_WIDTH_DP = 500
     private const val STEP = 20
     private const val buildDir = "./out/res/"
 
